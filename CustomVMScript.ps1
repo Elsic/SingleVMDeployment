@@ -96,7 +96,7 @@ if ((Test-Path $_NotepadPlusPlus_Downloaded_Successfully) -eq $false) {
 
     $Notepad_WebClient = New-Object System.Net.WebClient
     $Notepad_URI       = "https://notepad-plus-plus.org/repository/6.x/6.8.1/npp.6.8.1.Installer.exe"
-    $Notepad_File      = $logfile + "npp.6.8.1.Installer.exe"
+    $Notepad_File      = $logpath + "npp.6.8.1.Installer.exe"
     $Notepad_WebClient.DownloadFile($Notepad_URI,$Notepad_File)
 
     If ($?)
@@ -114,7 +114,7 @@ if ((Test-Path $_NotepadPlusPlus_Downloaded_Successfully) -eq $false) {
 
 # Install Notepad++
 if ((Test-Path $_NotepadPlusPlus_Installed_Successfully) -eq $false) {
-    C:\Windows\Temp\npp.6.8.1.Installer.exe /S
+    & "$($logpath)\npp.6.8.1.Installer.exe" /S
 
     If ($?)
 	    {
